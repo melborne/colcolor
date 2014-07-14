@@ -40,7 +40,6 @@ Output:
 
 ![sample1](https://github.com/melborne/colcolor/raw/screenshot/sample1.png)
 
-
 If you want to have background colors or some decorations onto them, chain the names with underscores:
 
 ```ruby
@@ -49,6 +48,10 @@ list.each_line do |line|
 end
 ```
 
+Output:
+
+![sample2](https://github.com/melborne/colcolor/raw/screenshot/sample2.png)
+
 If you prefer ages(second column) without color, pass `nil` for it:
 
 ```ruby
@@ -56,6 +59,10 @@ list.each_line do |line|
   puts line.colco(:green, nil, :blue_underline)
 end
 ```
+
+Output:
+
+![sample3](https://github.com/melborne/colcolor/raw/screenshot/sample3.png)
 
 You have full names in the list and want to apply bgcolor for them, `regexp` option might helps you.
 
@@ -82,6 +89,10 @@ list.each_line do |line|
   puts line.colco(:bg_green, :yellow, :blue_underline, regexp:re)
 end
 ```
+
+Output:
+
+![sample4](https://github.com/melborne/colcolor/raw/screenshot/sample4.png)
 
 ## Contributing
 
