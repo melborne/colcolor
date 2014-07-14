@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Colcolor::VERSION
   spec.authors       = ["kyoendo"]
   spec.email         = ["postagie@gmail.com"]
-  spec.summary       = %q{Easily colorize terminal text by word.}
-  spec.description   = %q{Easily colorize terminal text by word.}
-  spec.homepage      = ""
+  spec.summary       = %q{Easily colorize terminal text by each column.}
+  spec.description   = %q{Easily colorize terminal text by each column.}
+  spec.homepage      = "https://github.com/melborne/colcolor"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

@@ -1,6 +1,6 @@
 # Colcolor
 
-Easily colorize terminal text by word.
+Easily colorize terminal text by each column.
 
 ## Installation
 
@@ -18,7 +18,70 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You want to colorize terminal outputs in which each column have different color.
+
+It can be easily achieved with `String#colco` method as follows:
+
+```ruby
+require "colcolor"
+
+list = <<-EOS
+Charlie\t21\tprogrammer
+Bill\t43\tdoctor
+Liz\t18\tstudent
+EOS
+
+list.each_line do |line|
+  puts line.colco(:green, :yellow, :blue)
+end
+```
+
+Output:
+
+![sample1](https://github.com/melborne/colcolor/raw/screenshot/sample1.png)
+
+
+If you want to have background colors or some decorations onto them, chain the names with underscores:
+
+```ruby
+list.each_line do |line|
+  puts line.colco(:green, :red_yellow, :blue_underline)
+end
+```
+
+If you prefer ages(second column) without color, pass `nil` for it:
+
+```ruby
+list.each_line do |line|
+  puts line.colco(:green, nil, :blue_underline)
+end
+```
+
+You have full names in the list and want to apply bgcolor for them, `regexp` option might helps you.
+
+```ruby
+list = <<-EOS
+Charlie Brown\t21\tprogrammer
+Bill Clinton\t43\tdoctor
+Liz Taylor\t18\tstudent
+EOS
+
+# less appropriate example:
+
+list.each_line do |line|
+  puts line.colco(:bg_green, :bg_green, :yellow, :blue_underline)
+end
+
+puts
+
+# example with regexp option:
+
+re = /^.*?(?=\t)|\S+/ # match any characters before the first tab or non whitespaces
+
+list.each_line do |line|
+  puts line.colco(:bg_green, :yellow, :blue_underline, regexp:re)
+end
+```
 
 ## Contributing
 
