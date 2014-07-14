@@ -18,17 +18,3 @@ end
 
 String.send(:include, Colcolor)
 
-__END__
-
-COLOR_MAP = %i(red green yellow).zip(31..33).map { |k,v| [k, "\e[#{v}m"] }.to_h
-
-def color(lines, colors, regexp=/\S+/)
- lines.each_line.map do |line|
-   cs = colors.dup
-   line.gsub(regexp) do
-     color = COLOR_MAP[cs.shift] || "\e[0m"
-     color + $& + "\e[0m"
-   end
- end.join
-end
-
