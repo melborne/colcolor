@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-You want to colorize terminal outputs in which each column have different color.
+You want to colorize terminal outputs in which each column(separated by whitespaces) have different color.
 
 It can be easily achieved with `String#colco` method as follows:
 
