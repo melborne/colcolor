@@ -1,6 +1,6 @@
 # Colcolor
 
-TODO: Write a gem description
+Easily colorize terminal text by word.
 
 ## Installation
 
