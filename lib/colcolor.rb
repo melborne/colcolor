@@ -27,6 +27,7 @@ module Colcolor
     end
   end
 
+  private
   def build_color_tag(name)
     if tag = COLORS[name] || BGCOLORS["bg_#{name}".intern] || EXTRA[name]
       tag
