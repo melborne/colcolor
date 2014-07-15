@@ -5,9 +5,10 @@ module Colcolor
     Hash[ colors.zip(codes).map { |k, v| [k, "\e[#{v}m"] } ].freeze
   end
 
-  COLORS = TAGMAP( %i(black red green yellow blue magenta cyan white), 30..37)
-  BGCOLORS = TAGMAP( %i( black red green yellow blue magenta cyan white), 40..47)
-  EXTRA = TAGMAP( %i( clear bold underline blink reverse ), [0, 1, 4, 5, 7])
+  COLORSET = %i(black red green yellow blue magenta cyan white)
+  COLORS = TAGMAP(COLORSET, 30..37)
+  BGCOLORS = TAGMAP(COLORSET, 40..47)
+  EXTRA = TAGMAP(%i(clear bold underline blink reverse), [0,1,4,5,7])
 
   def colco(*colors, regexp:/\S+/)
     cs = colors.dup
@@ -19,7 +20,7 @@ module Colcolor
 
   private
   def build_color_tag(name)
-    if tag = COLORS[name] || BGCOLORS[name] || EXTRA[name]
+    if tag = COLORS[name] || EXTRA[name]
       tag
     else
       fore, *ext = name.to_s.split('_').map(&:intern)
