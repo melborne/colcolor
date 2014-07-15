@@ -27,21 +27,21 @@ describe Colcolor do
     context "two or more color attributes to a word" do
       it "colors a word with two attrs" do
         str = "Charlie is great!"
-        expect = "\e[32mCharlie\e[0m is\e[0m \e[31m\e[4mgreat!\e[0m"
+        expect = "\e[32mCharlie\e[0m is \e[31m\e[4mgreat!\e[0m"
         color_set = [:green, nil, :red_underline]
         expect(str.colco(*color_set)).to eq expect
       end
 
       it "colors a word with three attrs" do
         str = "Charlie is great!"
-        expect = "\e[32mCharlie\e[0m is\e[0m \e[31m\e[43m\e[4mgreat!\e[0m"
+        expect = "\e[32mCharlie\e[0m is \e[31m\e[43m\e[4mgreat!\e[0m"
         color_set = [:green, nil, :red_yellow_underline]
         expect(str.colco(*color_set)).to eq expect
       end
 
       it "colors a word with color attrs but no foreground" do
         str = "Charlie is great!"
-        expect = "\e[32mCharlie\e[0m is\e[0m \e[43m\e[4mgreat!\e[0m"
+        expect = "\e[32mCharlie\e[0m is \e[43m\e[4mgreat!\e[0m"
         color_set = [:green, nil, :_yellow_underline]
         expect(str.colco(*color_set)).to eq expect
       end
@@ -49,13 +49,13 @@ describe Colcolor do
 
     context "short colors" do
       it "colors a word white for missing color" do
-        expect = "\e[32mGeorge\e[0m \e[33m18\e[0m guitarist\e[0m"
+        expect = "\e[32mGeorge\e[0m \e[33m18\e[0m guitarist"
         color_set = [:green, :yellow]
         expect(@str.colco(*color_set)).to eq expect
       end
 
       it "colors a word white at intermidiate" do
-        expect = "\e[32mGeorge\e[0m 18\e[0m \e[31mguitarist\e[0m"
+        expect = "\e[32mGeorge\e[0m 18 \e[31mguitarist\e[0m"
         color_set = [:green, nil, :red]
         expect(@str.colco(*color_set)).to eq expect
       end

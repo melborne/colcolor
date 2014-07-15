@@ -13,7 +13,7 @@ module Colcolor
     cs = colors.dup
     self.gsub(regexp) do
       color = build_color_tag(cs.shift)
-      color + $& + EXTRA[:clear]
+      color.empty? ? $& : (color + $& + EXTRA[:clear])
     end
   end
 
