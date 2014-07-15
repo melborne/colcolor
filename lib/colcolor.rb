@@ -29,7 +29,7 @@ module Colcolor
 
   private
   def build_color_tag(name)
-    if tag = COLORS[name] || BGCOLORS["bg_#{name}".intern] || EXTRA[name]
+    if tag = COLORS[name] || BGCOLORS[name] || EXTRA[name]
       tag
     else
       fore, *ext = name.to_s.split('_').map(&:intern)

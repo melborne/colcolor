@@ -16,6 +16,12 @@ describe Colcolor do
         color_set = [:green, :yellow, :red]
         expect(@str.colco(*color_set)).to eq expect
       end
+
+      it "colors background of words" do
+        expect = "\e[42mGeorge\e[0m \e[43m18\e[0m \e[41mguitarist\e[0m"
+        color_set = [:bg_green, :bg_yellow, :bg_red]
+        expect(@str.colco(*color_set)).to eq expect
+      end
     end
 
     context "two or more color attributes to a word" do
