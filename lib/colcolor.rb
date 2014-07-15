@@ -1,23 +1,13 @@
 require "colcolor/version"
 
 module Colcolor
-  COLORS = Hash[
-    %i( black red green yellow blue magenta cyan white )
-      .zip(30..37)
-      .map { |k,v| [k, "\e[#{v}m"] }
-    ].freeze
+  def self.TAGMAP(colors, codes)
+    Hash[ colors.zip(codes).map { |k, v| [k, "\e[#{v}m"] } ].freeze
+  end
 
-  BGCOLORS = Hash[
-    %i( black red green yellow blue magenta cyan white )
-      .zip(40..47)
-      .map { |k,v| [k, "\e[#{v}m"] }
-    ].freeze
-
-  EXTRA = Hash[
-    %i( clear bold underline blink reverse )
-      .zip([0, 1, 4, 5, 7])
-      .map { |k,v| [k, "\e[#{v}m"] }
-    ].freeze
+  COLORS = TAGMAP( %i(black red green yellow blue magenta cyan white), 30..37)
+  BGCOLORS = TAGMAP( %i( black red green yellow blue magenta cyan white), 40..47)
+  EXTRA = TAGMAP( %i( clear bold underline blink reverse ), [0, 1, 4, 5, 7])
 
   def colco(*colors, regexp:/\S+/)
     cs = colors.dup
