@@ -1,5 +1,7 @@
 # Colcolor
 
+[![Build Status](https://travis-ci.org/melborne/colcolor.svg)](https://travis-ci.org/melborne/colcolor)
+
 Easily colorize terminal text by each column.
 
 ## Installation
@@ -93,6 +95,19 @@ end
 Output:
 
 ![sample4](https://github.com/melborne/colcolor/raw/screenshot/sample4.png)
+
+If you want to apply colors periodically to a text, set `cyclic` option to true.
+
+```ruby
+"H E L L O W O R L D".colco(:red, :green, :yellow, cycle:true)
+
+```
+
+Output:
+
+
+![sample5](https://github.com/melborne/colcolor/raw/screenshot/sample5.png)
+
 
 ## Contributing
 
