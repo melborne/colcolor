@@ -70,5 +70,14 @@ describe Colcolor do
         expect(str.colco(*color_set, regexp:re)).to eq expect
       end
     end
+
+    context "with cycle option" do
+      it "applys colors cyclic to the text" do
+        str = "a b c d e f"
+        expect = "\e[31ma\e[0m \e[32mb\e[0m \e[33mc\e[0m \e[31md\e[0m \e[32me\e[0m \e[33mf\e[0m"
+        color_set = [:red, :green, :yellow]
+        expect(str.colco(*color_set, cycle:true)).to eq expect
+      end
+    end
   end
 end
