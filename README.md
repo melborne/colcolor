@@ -99,7 +99,7 @@ Output:
 If you want to apply colors periodically to a text, set `cyclic` option to true.
 
 ```ruby
-"H E L L O W O R L D".colco(:red, :green, :yellow, cycle:true)
+"H E L L O W O R L D".colco(:red, :green, :yellow, cyclic:true)
 
 ```
 

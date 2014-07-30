@@ -10,8 +10,8 @@ module Colcolor
   BGCOLORS = TAGMAP(COLORSET, 40..47)
   EXTRA = TAGMAP(%i(clear bold underline blink reverse), [0,1,4,5,7])
 
-  def colco(*colors, regexp:/\S+/, cycle:false)
-    cs = cycle ? colors.cycle : colors.to_enum
+  def colco(*colors, regexp:/\S+/, cyclic:false)
+    cs = cyclic ? colors.cycle : colors.to_enum
     self.gsub(regexp) do
       cname = cs.next rescue nil
       color = build_color_tag(cname)
